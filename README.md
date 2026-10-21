@@ -183,7 +183,7 @@ FAIL  test/sec/render.e2e-spec.ts (143.608 s)
 
     IssueFound: Target is vulnerable
 
-    Issue in Bright UI:   https://development.playground.neuralegion.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
+    Issue in Bright UI:   https://development.playground.brightsec.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
     Name:                 SSTI - Server Side Template Injection
     Severity:             High
     Remediation:
@@ -285,7 +285,7 @@ This can take a few minutes while the Bright engine spins up. After a moment, yo
 
     IssueFound: Target is vulnerable
 
-    Issue in Bright UI:   https://development.playground.neuralegion.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
+    Issue in Bright UI:   https://development.playground.brightsec.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
     Name:                 SSTI - Server Side Template Injection
     Severity:             High
     Remediation:
