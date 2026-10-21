@@ -52,8 +52,8 @@ Trying out Bright’s SecTester is _**free**_ 💸, so let’s get started!
 
 ### Get a Bright API key
 
-1.  Register for a free account at Bright’s [**signup**](https://app.neuralegion.com/signup) page
-2.  Skip the quickstart wizard and go directly to [**User API key creation**](https://app.neuralegion.com/profile)
+1.  Register for a free account at Bright’s [**signup**](https://app.brightsec.com/signup) page
+2.  Skip the quickstart wizard and go directly to [**User API key creation**](https://app.brightsec.com/profile)
 3.  Create a Bright API key ([**check out our docs on how to create a user key**](https://docs.brightsec.com/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens))
 4.  Save the Bright API key
     1.  For this demo, we recommend using your Github repository secrets feature to store the key, accessible via the `Settings > Security > Secrets > Actions` configuration. We use the ENV variable called `BRIGHT_TOKEN` in our examples
@@ -110,7 +110,7 @@ jobs:
         run: npm run test:sec
         env:
           BRIGHT_TOKEN: ${{ secrets.BRIGHT_TOKEN }}
-          BRIGHT_HOSTNAME: app.neuralegion.com
+          BRIGHT_HOSTNAME: app.brightsec.com
           BROKEN_CRYSTALS_URL: http://localhost:3000
 ```
 
@@ -123,7 +123,7 @@ In the example above, the CI flow is set to run all the SecTester tests, but if 
   run: npm run test:sec -- -t 'testimonials'
   env:
     BRIGHT_TOKEN: ${{ secrets.BRIGHT_TOKEN }}
-    BRIGHT_HOSTNAME: app.neuralegion.com
+    BRIGHT_HOSTNAME: app.brightsec.com
     BROKEN_CRYSTALS_URL: http://localhost:3000
 ```
 
@@ -322,7 +322,7 @@ let runner!: SecRunner;
 // ...
 
 beforeEach(async () => {
-  runner = new SecRunner({ hostname: 'app.neuralegion.com' });
+  runner = new SecRunner({ hostname: 'app.brightsec.com' });
 
   await runner.init();
 });
@@ -335,7 +335,7 @@ To set up a runner, create a `SecRunner` instance on the top of the file, passin
 ```ts
 import { SecRunner } from '@sectester/runner';
 
-const runner = new SecRunner({ hostname: 'app.neuralegion.com' });
+const runner = new SecRunner({ hostname: 'app.brightsec.com' });
 ```
 
 After that, you have to initialize a `SecRunner` instance:
