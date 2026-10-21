@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NeuraLegion/sectester-js-demo-broken-crystals.git"
+    "url": "git+https://github.com/BrightSec/sectester-js-demo-broken-crystals.git"
   },
   "author": {
     "name": "Artem Derevnjuk",
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NeuraLegion/sectester-js-demo-broken-crystals/issues"
+    "url": "https://github.com/BrightSec/sectester-js-demo-broken-crystals/issues"
   },
   "commitlint": {
     "extends": [
@@ -48,7 +48,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:sec": "jest --config test/jest-e2e.config.js test/sec"
   },
-  "homepage": "https://github.com/NeuraLegion/sectester-js-demo-broken-crystals#readme",
+  "homepage": "https://github.com/BrightSec/sectester-js-demo-broken-crystals#readme",
   "devDependencies": {
     "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^17.0.0",
