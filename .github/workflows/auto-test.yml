@@ -33,5 +33,5 @@ jobs:
         run: npm run test:sec
         env:
           BRIGHT_TOKEN: ${{ secrets.BRIGHT_TOKEN }}
-          BRIGHT_HOSTNAME: app.neuralegion.com
+          BRIGHT_HOSTNAME: app.brightsec.com
           BROKEN_CRYSTALS_URL: http://localhost:3000

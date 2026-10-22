@@ -2,7 +2,7 @@ version: '3'
 
 services:
   brokencrystals.api:
-    image: 'neuralegion/brokencrystals'
+    image: 'brightsec/brokencrystals'
     restart: always
     healthcheck:
       interval: 5s
@@ -20,7 +20,7 @@ services:
       - keycloak
 
   brokencrystals:
-    image: 'neuralegion/brokencrystals-client'
+    image: 'brightsec/brokencrystals-client'
     restart: always
     ports:
       - '3000:80'

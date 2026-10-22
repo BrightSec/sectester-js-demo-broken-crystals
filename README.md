@@ -22,7 +22,7 @@
 
 ## About this project
 
-This is a demo project for the [SecTester JS SDK framework](https://github.com/NeuraLegion/sectester-js), with some installation and usage examples. We recommend forking it and playing around, that’s what it’s for!
+This is a demo project for the [SecTester JS SDK framework](https://github.com/BrightSec/sectester-js), with some installation and usage examples. We recommend forking it and playing around, that’s what it’s for!
 
 ## About SecTester
 
@@ -52,8 +52,8 @@ Trying out Bright’s SecTester is _**free**_ 💸, so let’s get started!
 
 ### Get a Bright API key
 
-1.  Register for a free account at Bright’s [**signup**](https://app.neuralegion.com/signup) page
-2.  Skip the quickstart wizard and go directly to [**User API key creation**](https://app.neuralegion.com/profile)
+1.  Register for a free account at Bright’s [**signup**](https://app.brightsec.com/signup) page
+2.  Skip the quickstart wizard and go directly to [**User API key creation**](https://app.brightsec.com/profile)
 3.  Create a Bright API key ([**check out our docs on how to create a user key**](https://docs.brightsec.com/docs/manage-your-personal-account#manage-your-personal-api-keys-authentication-tokens))
 4.  Save the Bright API key
     1.  For this demo, we recommend using your Github repository secrets feature to store the key, accessible via the `Settings > Security > Secrets > Actions` configuration. We use the ENV variable called `BRIGHT_TOKEN` in our examples
@@ -64,18 +64,18 @@ Trying out Bright’s SecTester is _**free**_ 💸, so let’s get started!
 
 ## Running in a CI pipeline
 
-Once you create your own unit tests using [SecTester](https://github.com/NeuraLegion/sectester-js), you can run it in any CI you choose. To simplify things in this demo we provide an example using the GitHub Actions CI.
+Once you create your own unit tests using [SecTester](https://github.com/BrightSec/sectester-js), you can run it in any CI you choose. To simplify things in this demo we provide an example using the GitHub Actions CI.
 
 ### GitHub Actions setup
 
 1.  After forking the main repo, you will need to go to the `Actions` tab and click on the `I understand my workflows, go ahead an enable them` button. This will enable you to run the pre-configured CI example from this demo
 2.  Next, add your `BRIGHT_TOKEN` to the GitHub Actions environment variables via the [Secret Variables](https://docs.github.com/en/actions/reference/encrypted-secrets), accessible via the `Settings > Security > Secrets > Actions` configuration. Please make sure that the ENV variable is called `BRIGHT_TOKEN`, as that is what we use in our example
 
-> You can integrate [SecTester](https://github.com/NeuraLegion/sectester-js) into any CI you use. For that, you will need to add the `BRIGHT_TOKEN` ENV vars to your CI.
+> You can integrate [SecTester](https://github.com/BrightSec/sectester-js) into any CI you use. For that, you will need to add the `BRIGHT_TOKEN` ENV vars to your CI.
 
 ### Using with GitHub Actions
 
-The following is a minimal configuration for starting [SecTester](https://github.com/NeuraLegion/sectester-js), which is running on the latest LTS version of Node and triggers only when a pull request is opened.
+The following is a minimal configuration for starting [SecTester](https://github.com/BrightSec/sectester-js), which is running on the latest LTS version of Node and triggers only when a pull request is opened.
 
 As you can see, the workflow creates a test [job](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) that runs SecTester only after all dependencies are installed:
 
@@ -110,7 +110,7 @@ jobs:
         run: npm run test:sec
         env:
           BRIGHT_TOKEN: ${{ secrets.BRIGHT_TOKEN }}
-          BRIGHT_HOSTNAME: app.neuralegion.com
+          BRIGHT_HOSTNAME: app.brightsec.com
           BROKEN_CRYSTALS_URL: http://localhost:3000
 ```
 
@@ -123,7 +123,7 @@ In the example above, the CI flow is set to run all the SecTester tests, but if 
   run: npm run test:sec -- -t 'testimonials'
   env:
     BRIGHT_TOKEN: ${{ secrets.BRIGHT_TOKEN }}
-    BRIGHT_HOSTNAME: app.neuralegion.com
+    BRIGHT_HOSTNAME: app.brightsec.com
     BROKEN_CRYSTALS_URL: http://localhost:3000
 ```
 
@@ -183,7 +183,7 @@ FAIL  test/sec/render.e2e-spec.ts (143.608 s)
 
     IssueFound: Target is vulnerable
 
-    Issue in Bright UI:   https://development.playground.neuralegion.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
+    Issue in Bright UI:   https://development.playground.brightsec.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
     Name:                 SSTI - Server Side Template Injection
     Severity:             High
     Remediation:
@@ -285,7 +285,7 @@ This can take a few minutes while the Bright engine spins up. After a moment, yo
 
     IssueFound: Target is vulnerable
 
-    Issue in Bright UI:   https://development.playground.neuralegion.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
+    Issue in Bright UI:   https://development.playground.brightsec.com/scans/bH2vd1CfxHtKjLNLxw94oj/issues/w68hhVa1We95UNZx4FmefT
     Name:                 SSTI - Server Side Template Injection
     Severity:             High
     Remediation:
@@ -312,7 +312,7 @@ Ran all test suites matching /render.e2e-spec.ts/i.
 
 Let’s look under the hood to see how this all works. In the following example, we will test the app we just set up for any instances of Server Side Template Injection. [Jest](https://github.com/facebook/jest) is provided as the testing framework, that provides assert functions and test-double utilities that help with mocking, spying, etc.
 
-The [`@sectester/runner`](https://github.com/NeuraLegion/sectester-js/tree/master/packages/runner) package provides a set of utilities that allows scanning the demo application for vulnerabilities. Let's expand the previous example using the built-in `SecRunner` class:
+The [`@sectester/runner`](https://github.com/BrightSec/sectester-js/tree/master/packages/runner) package provides a set of utilities that allows scanning the demo application for vulnerabilities. Let's expand the previous example using the built-in `SecRunner` class:
 
 [`test/sec/render.e2e-spec.ts`](./test/sec/render.e2e-spec.ts)
 
@@ -322,7 +322,7 @@ let runner!: SecRunner;
 // ...
 
 beforeEach(async () => {
-  runner = new SecRunner({ hostname: 'app.neuralegion.com' });
+  runner = new SecRunner({ hostname: 'app.brightsec.com' });
 
   await runner.init();
 });
@@ -335,7 +335,7 @@ To set up a runner, create a `SecRunner` instance on the top of the file, passin
 ```ts
 import { SecRunner } from '@sectester/runner';
 
-const runner = new SecRunner({ hostname: 'app.neuralegion.com' });
+const runner = new SecRunner({ hostname: 'app.brightsec.com' });
 ```
 
 After that, you have to initialize a `SecRunner` instance:
@@ -412,7 +412,7 @@ jest.setTimeout(300000);
 
 To clarify an attack surface and speed up the test, we suggest making clear where to discover the parameters according to the source code.
 
-[`src/app.controller.ts`](https://github.com/NeuraLegion/brokencrystals/blob/master/src/app.controller.ts)
+[`src/app.controller.ts`](https://github.com/BrightSec/brokencrystals/blob/master/src/app.controller.ts)
 
 ```ts
 @Controller('/api')
@@ -520,7 +520,7 @@ describe('/api', () => {
 });
 ```
 
-Full documentation can be found in the [`@sectester/runner`](https://github.com/NeuraLegion/sectester-js/tree/master/packages/runner) README.
+Full documentation can be found in the [`@sectester/runner`](https://github.com/BrightSec/sectester-js/tree/master/packages/runner) README.
 
 ## Recommended tests
 
@@ -577,8 +577,8 @@ Full documentation can be found in the [`@sectester/runner`](https://github.com/
 
 Please read [contributing guidelines here](./CONTRIBUTING.md).
 
-<a href="https://github.com/NeuraLegion/sectester-js-demo-broken-crystals/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=NeuraLegion/sectester-js-demo-broken-crystals"/>
+<a href="https://github.com/BrightSec/sectester-js-demo-broken-crystals/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BrightSec/sectester-js-demo-broken-crystals"/>
 </a>
 
 ## License
